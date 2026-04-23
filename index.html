@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Isaac Weaver Portfolio</title>
+<title>Jeffrey Taylor Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="icon" type="image/png" href="assets/robotpbfavicon.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,7 +26,8 @@
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.65; min-height: 100vh; }
 
   /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: var(--paper); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 56px; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--paper); border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 960px; width: 100%; margin: 0 auto; padding: 0 2.5rem; height: 56px; }
   .nav-logo { font-family: var(--serif); font-size: 18px; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
   .nav-links { display: flex; gap: 1.75rem; }
   .nav-links a { font-size: 12px; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.15s; }
@@ -179,7 +180,7 @@
     .side-grid { grid-template-columns: 1fr 1fr; }
     .section, footer { padding: 3rem 1.25rem; }
     footer { flex-direction: column; align-items: flex-start; }
-    nav, .skills-strip { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-inner, .skills-strip { padding-left: 1.25rem; padding-right: 1.25rem; }
     .nav-links { gap: 1rem; }
   }
 </style>
@@ -187,12 +188,14 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">Isaac Weaver</a>
-  <div class="nav-links">
-    <a href="#featured">Work</a>
-    <a href="#about">About</a>
-    <a href="#archive">Archive</a>
-    <a href="#side">Side Projects</a>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Jeffrey Taylor</a>
+    <div class="nav-links">
+      <a href="#featured">Work</a>
+      <a href="#about">About</a>
+      <a href="#archive">Archive</a>
+      <a href="#side">Side Projects</a>
+    </div>
   </div>
 </nav>
 
@@ -200,8 +203,8 @@
 <div class="hero">
   <div>
     <div class="hero-eyebrow">Engineer &amp; Researcher</div>
-    <h1>Building things that <em>matter</em></h1>
-    <p class="hero-body">Mechanical &amp; systems engineer. MS graduate. Work spans novel robotics research, humanitarian design deployed in the field, full-stack software, and industrial logistics optimization.</p>
+    <h1>Improving life with <em>automation</em></h1>
+    <p class="hero-body">Mechanical &amp; automation engineer. MS graduate. Work spans novel robotics research, humanitarian design deployed in the field, full cycle product development.</p>
     <div class="hero-cta">
       <a href="#featured" class="btn btn-primary">View Projects</a>
       <a href="#archive" class="btn btn-outline">Full Archive</a>
@@ -209,9 +212,9 @@
     <div class="profile-links" id="profile-links"></div>
   </div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Publications</div></div>
+    <div class="stat"><div class="stat-num">Real-time</div><div class="stat-label">Harvest Prediction</div></div>
     <div class="stat"><div class="stat-num"><em>2</em></div><div class="stat-label">Patents</div></div>
-    <div class="stat"><div class="stat-num">12<em>ft</em></div><div class="stat-label">Robot height</div></div>
+    <div class="stat"><div class="stat-num">1.9<em>M</em></div><div class="stat-label">Rover Images</div></div>
     <div class="stat"><div class="stat-num">🌎</div><div class="stat-label">Bolivia fieldwork</div></div>
   </div>
 </div>
@@ -226,46 +229,44 @@
   </div>
   <div class="featured-grid">
 
-    <a class="card featured-main" onclick="openModal('quinoa');return false;" href="#">
-      <div class="card-thumb card-thumb-tall" style="position: relative;">
-      <img src="assets/Mill.png" alt="Quinoa mill Bolivia" style="width: 100%; height: 100%; object-fit: cover;">
-      <video src="assets/videos/Mill_in_action.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s;" onmouseenter="this.style.opacity='1'; this.play();" onmouseleave="this.style.opacity='0'; this.pause(); this.currentTime=0;"></video>
+  <!-- Modify with 'card-thumb-tall',  -->
+    <a class="card featured-main" onclick="openModal('rover');return false;" href="#">
+      <div class="card-thumb card-thumb-tall" style="background:#bdcac0;">
+        <img src="assets/AmigaRover.png" alt="Amiga Rover" style="width:100%; height:100%; object-fit:cover;">
+        <span class="card-thumb-label">Field Robotics · Patent</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tags"><span class="tag tag-research">Research</span><span class="tag tag-software">Autonomy</span><span class="tag tag-hardware">Hardware</span></div>
+        <h3 class="card-title card-title-lg">Field study and harvest automation</h3>
+        <p class="card-desc">Conducted field studies and developed automation solutions for agricultural harvesting operations.</p>
+        <div class="card-footer"><span class="card-date">Graduate research</span><span style="color:var(--ink-faint)">↗</span></div>
+      </div>
+    </a>
+
+    <a class="card" onclick="openModal('quinoa');return false;" href="#">
+      <div class="card-thumb" style="background:#bdcac0;">
+        <img src="assets/Mill.png" alt="Quinoa mill Bolivia" style="width: 100%; height: 100%; object-fit: cover;">
+        <video src="assets/videos/Mill_in_action.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s;" onmouseenter="this.style.opacity='1'; this.play();" onmouseleave="this.style.opacity='0'; this.pause(); this.currentTime=0;"></video>
       <span class="card-thumb-label">Bolivia · Field Deployment</span>
       </div>
       <div class="card-body">
-      <div class="badge-featured">Flagship Project</div>
-      <div class="card-tags"><span class="tag tag-impact">Humanitarian</span><span class="tag tag-design">Mech Design</span><span class="tag tag-hardware">Manufacturing</span></div>
-      <h3 class="card-title card-title-lg">Quinoa mill for rural Bolivia</h3>
-      <p class="card-desc">Designed an affordable granite quinoa mill for rural Bolivian communities. Traveled to Bolivia to present designs, establish local sourcing, and build manufacturing pipelines so mills could be made and maintained in-country.</p>
-      <div class="card-footer"><span class="card-date">Graduate work</span><span style="color:var(--ink-faint)">↗</span></div>
+        <div class="card-tags"><span class="tag tag-impact">Humanitarian</span><span class="tag tag-design">Mech Design</span><span class="tag tag-hardware">Manufacturing</span></div>
+        <h3 class="card-title card-title-lg">Quinoa mill for rural Bolivia</h3>
+        <p class="card-desc">Designed an affordable granite quinoa mill for rural Bolivian communities. Traveled to Bolivia to present designs, establish local sourcing, and build manufacturing pipelines so mills could be made and maintained in-country.</p>
+        <div class="card-footer"><span class="card-date">Graduate work</span><span style="color:var(--ink-faint)">↗</span></div>
       </div>
     </a>
 
-    <a class="card" onclick="openModal('scissor');return false;" href="#">
-      <div class="card-thumb" style="background:#dce6f0;">
-        <!-- <img src="assets/images/scissor-mechanism.jpg" alt=""> -->
-        <span class="card-icon">🔗</span>
-        <span class="card-thumb-label">2 Publications · Patent</span>
+    <a class="card" onclick="openModal('designportfolio');return false;" href="#">
+      <div class="card-thumb" style="background:#b4c9db;">
+        <img src="assets/OneWheel_explode.png" alt="OneWheel design" style="width:100%; height:100%; object-fit:cover;">
+        <span class="card-thumb-label">Product Design · CAD Modeling </span>
       </div>
       <div class="card-body">
-        <div class="card-tags"><span class="tag tag-research">Research</span><span class="tag tag-publication">2× Published</span><span class="tag tag-hardware">Invention</span></div>
-        <h3 class="card-title">Compliant scissor linkage mechanism</h3>
-        <p class="card-desc">Invented a novel compliant scissor linkage adapted for a watchband and robot end effector. Two peer-reviewed papers.</p>
-        <div class="card-footer"><span class="card-date">MS Research</span><span style="color:var(--ink-faint)">↗</span></div>
-      </div>
-    </a>
-
-    <a class="card" onclick="openModal('isop');return false;" href="#">
-      <div class="card-thumb" style="background:#cfe0ef;">
-        <!--  VIDEO: replace .card-thumb with a thumbnail or leave emoji until you have one  -->
-        <span class="card-icon">🤖</span>
-        <span class="card-thumb-label">2 Papers · 12ft Robot</span>
-      </div>
-      <div class="card-body">
-        <div class="card-tags"><span class="tag tag-research">Research</span><span class="tag tag-publication">2× Published</span><span class="tag tag-hardware">Robotics</span></div>
-        <h3 class="card-title">Isoperimetric robot — workspace &amp; robustness</h3>
-        <p class="card-desc">Characterized workspace across graph structures and robustness under node failure. Wrote the controller for the hardware prototype — walks and extends to 12 feet.</p>
-        <div class="card-footer"><span class="card-date">MS Research</span><span style="color:var(--ink-faint)">↗</span></div>
+        <div class="card-tags"><span class="tag tag-software">Design</span></div>
+        <h3 class="card-title">Portfolio of Design Projects</h3>
+        <p class="card-desc">Collection of design projects.</p>
+        <div class="card-footer"><span class="card-date">2020 - 2026</span><span style="color:var(--ink-faint)">↗</span></div>
       </div>
     </a>
 
@@ -283,22 +284,20 @@
   <div class="about-grid">
     <div>
       <!-- PHOTO: replace this block with <img src="assets/images/headshot.jpg" alt="Your Name" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:1px solid var(--border);"> -->
-      <img src="assets/isaac_pb.jpg" alt="Isaac Weaver" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:1px solid var(--border);">
+      <img src="assets/Profile.jpg" alt="Jeffrey Taylor" style="width:100%;aspect-ratio:1/1.1;object-fit:cover;border-radius:14px;border:1px solid var(--border);">
       <!-- <div class="about-photo-wrap">
         <span class="ph">👤</span>
         <p class="ph-label">Add headshot<br>assets/images/headshot.jpg</p>
       </div> -->
     </div>
     <div class="about-content">
-      <h3>Engineer, tinkerer, <em>competitor</em></h3>
-      <p>I'm a mechanical engineer with a master's degree and a bias toward building things that reach beyond the lab — deploying a robot that stands 12 feet tall, flying to Bolivia to set up a manufacturing line, or publishing research on mechanisms nobody had formalized before.</p>
-      <p>I'm drawn to problems at the intersection of physical design and systems thinking: how does this part move, how does this network fail, how does this product get made by real people in the real world?</p>
-      <p>Outside engineering I'm competitive. I serve as president and captain of the BYU Pickleball Club, where I also coach players at multiple skill levels. I've competed in and won intramural ultimate frisbee championships. I served a two-year mission for The Church of Jesus Christ of Latter-day Saints in Argentina — which gave me fluent Spanish, deep cross-cultural fluency, and a genuine love for Latin America that showed up directly in my Bolivia fieldwork.</p>
+      <h3>Research-first engineer with a <em>deployment mindset</em></h3>
+      <p>I am currently completing an MS in Mechanical Engineering at BYU with a 4.00 GPA. My technical center is robotics and GNC, and I like projects that combine algorithm design, real hardware constraints, and measurable outcomes.</p>
+      <p>From rover autonomy to medical device prototyping, I prefer work where design and validation are tightly coupled. I enjoy turning messy field data into clear engineering decisions.</p>
       <div class="about-hl">
-        <div class="hl-item"><span class="hl-icon">🏓</span><div class="hl-text"><strong>BYU Pickleball Club — President &amp; Captain</strong>Founded and lead the club; compete on team, coach across skill levels</div></div>
-        <div class="hl-item"><span class="hl-icon">🥏</span><div class="hl-text"><strong>Intramural Ultimate Frisbee</strong>Multiple championship wins — team sport, competitive mindset</div></div>
-        <div class="hl-item"><span class="hl-icon">🌎</span><div class="hl-text"><strong>LDS Mission — Argentina (2 years)</strong>Fluent Spanish · Cross-cultural leadership · Field deployment mindset</div></div>
-        <div class="hl-item"><span class="hl-icon">✈️</span><div class="hl-text"><strong>Bolivia field deployment</strong>Traveled internationally to install and teach a humanitarian engineering project</div></div>
+        <div class="hl-item"><span class="hl-icon">🧭</span><div class="hl-text"><strong>GNC and autonomy focus</strong>Controls, SLAM, mapping, and model-driven robotics decisions.</div></div>
+        <div class="hl-item"><span class="hl-icon">🧪</span><div class="hl-text"><strong>Validation oriented</strong>Signal processing, test pipelines, and repeatable engineering methods.</div></div>
+        <div class="hl-item"><span class="hl-icon">🛠️</span><div class="hl-text"><strong>Cross-functional builder</strong>Comfortable across code, systems modeling, and physical prototyping.</div></div>
       </div>
     </div>
   </div>
@@ -413,110 +412,112 @@ const projects = {
     media: { type: 'gallery', items: [
       { type: 'image', src: 'assets/Mill.png' },
       { type: 'image', src: 'assets/ExplodedMill.png' },
-      { type: 'image', src: 'assets/Mill_assembly.jpg' },
       { type: 'image', src: 'assets/Mill_use.jpg' },
       { type: 'video', src: 'assets/Mill_in_action.mp4' }
     ] },
     // Example: media: { type: 'gallery', images: ['assets/images/quinoa-mill.jpg','assets/images/quinoa-bolivia.jpg','assets/images/quinoa-team.jpg'] }
     desc: "Designed an affordable granite-based quinoa milling system for rural Bolivian communities. The design prioritized local material sourcing and simple construction techniques so mills could be manufactured and maintained without importing parts. Traveled to Bolivia to present designs, connect with local stakeholders, and establish sourcing and manufacturing pipelines that keep production in-country.",
-    outcomes: ["Full manufacturing documentation for local Bolivian production","Established local supplier and fabrication relationships in-country","Design optimized for affordability with locally available granite","Presented to community stakeholders and NGO partners"],
+    outcomes: [
+      "Full manufacturing documentation for local Bolivian production",
+      "Established local supplier and fabrication relationships in-country",
+      "Design optimized for affordability with locally available granite",
+      "Presented to community stakeholders and NGO partners"
+    ],
     skills: ["SolidWorks","CAD","DFM","Field Research","Stakeholder Communication","Granite Machining","Supply Chain Design"]
   },
-  scissor: {
-    title: "Compliant scissor linkage mechanism",
-    tags: [['Research','research'],['2× Published','publication'],['Invention','hardware']],
-    media: null,
-    desc: "Invented a novel compliant scissor linkage that leverages elastic deformation rather than rigid joints for compact, low-friction motion. Adapted to two applications: a smartwatch band that conforms to wrist movement, and a robot end effector. Two peer-reviewed papers published covering design, modeling, and applications.",
-    outcomes: ["Two peer-reviewed publications","Patent applications filed for watchband and end effector","Novel compliant mechanism advancing the state of the art","Applications in wearables and robotics demonstrated"],
-    skills: ["Compliant Mechanism Design","SolidWorks","FEA","MATLAB","Kinematics","Technical Writing","Patent Preparation"]
-  },
-  isop: {
-    title: "Isoperimetric robot — workspace & robustness",
-    tags: [['Research','research'],['2× Published','publication'],['Robotics','hardware']],
-    media: { type: 'gallery', items: [
-      { type: 'image', src: 'assets/outside_truss_double_oct.jpg' },
-      { type: 'image', src: 'assets/Isaac_Mihai_Robot.jpg' },
-      { type: 'video', src: 'assets/truss_robot_in_motion.mp4' }
+  rover: {
+    title: 'Closed-loop rover navigation and autonomy stack',
+    tags: [['Research','research'],['Autonomy','software'],['Field Robotics','hardware']],
+        media: { type: 'gallery', items: [
+      { type: 'image', src: 'assets/AmigaRover.png' },
+      { type: 'image', src: 'assets/cameraProjection.png' },
+
     ] },
-    // Example: media: { type: 'youtube', id: 'YOUR_VIDEO_ID_HERE' }
-    desc: "Characterized the reachable workspace of isoperimetric robots across different underlying graph structures (first paper), then analyzed workspace robustness under node failure (second paper). Also authored the full controller and communication system for the physical hardware prototype — a robot that walks and extends to 12 feet tall.",
-    outcomes: ["Two peer-reviewed publications on workspace and robustness","Authored controller and comms stack for hardware robot","Hardware robot walks and extends to 12 feet","Foundational analysis for a novel class of robots"],
-    skills: ["ROS","Python","C++","Graph Theory","Kinematics","Controls","Embedded Systems","MATLAB","Technical Writing"]
+    desc: 'Graduate research work at BYU across three projects. Built onboard navigation, data acquisition, and deployment-ready autonomy workflows for field operations.',
+    outcomes: [
+      'Improved harvesting rates by 40% in human trials using a hand-tracking control algorithm',
+      'Collected 1.9M images through onboard Python data systems for autonomy and perception pipelines',
+      'Mapped 10k landmarks in dynamic agricultural environments for repeatable operation',
+      'Contributed to 2 patent filings through research outputs and system innovation'
+    ],
+    skills: ['Python','PyTorch','SLAM','Localization','Graph Neural Networks','Robot Controls','Data Acquisition'],
   },
-  pingpong: {
-    title: "Ping pong ball launcher robot",
-    tags: [['Hardware','hardware'],['Robotics','hardware']],
-    media: null,
-    desc: "Built a robot that automatically launches ping pong balls into user-selected goals. Integrated targeting, actuation, and control into a single working prototype.",
-    outcomes: ["Working prototype with goal-selection targeting","Integrated sensing, actuation, and control systems"],
-    skills: ["Mechanical Design","Arduino","Motor Control","Sensing","Prototyping"]
+  sandia: {
+    title: 'High-g device test automation at Sandia',
+    tags: [['Industry','impact'],['Software','software'],['Validation','research']],
+    desc: 'As an R&D engineer, built automation and data workflows for extreme high-g testing and review. Focused on faster analysis and repeatable validation.',
+    outcomes: [
+      'Reduced test review time by 90% using automated analysis pipelines',
+      'Processed 15 years of high-g shock test data, including datasets up to 5M points',
+      'Integrated sensor-driven fixture damping measurements to support design decisions'
+    ],
+    skills: ['Python','Signal Processing','Feature Recognition','Validation Engineering','Data Pipelines'],
   },
-  daikin: {
-    title: "Logistics engineering at Daikin",
-    tags: [['Industry','impact'],['Optimization','design']],
-    media: null,
-    desc: "Optimized shipping patterns across Daikin's distribution network. Core goal: increasing Full Truck Load (FTL) percentage and reducing Less-Than-Truckload (LTL) usage — a direct, measurable cost-saving initiative.",
-    outcomes: ["Improved FTL percentage across shipping network","Reduced LTL costs through route consolidation","Built shipping pattern optimization models","Real industry-scale logistics engineering experience"],
-    skills: ["Logistics Engineering","Network Optimization","Excel / Data Analysis","Supply Chain","Operations Research"]
-  },
-  mobileapp: {
-    title: "Full-stack sales mobile app",
-    tags: [['Software','software'],['Full Stack','software']],
-    media: null,
-    desc: "Built a full-stack React Native mobile app for a sales startup. Purpose-built for a specific sales company with custom CRM-style features, workflows, and data structures tailored to their sales process.",
-    outcomes: ["Shipped production React Native app","Full stack: mobile frontend + backend integration","Custom CRM features built from requirements","Startup development experience"],
-    skills: ["React Native","JavaScript","REST APIs","Full Stack","Mobile UI","Backend Integration","Agile"]
-  },
-  callbell: {
-    title: "Non-touch call bell (COVID-era)",
-    tags: [['Design','design'],['Invention','hardware']],
-    media: null,
-    desc: "Developed a contactless call bell during COVID-19 to reduce surface transmission. Inspired by touchless paper towel dispensers — no physical contact required — suitable for healthcare and hospitality environments.",
-    outcomes: ["Working contactless trigger mechanism","Design for healthcare/hospitality use","Business case developed for commercialization"],
-    skills: ["Product Design","Sensing","Prototyping","Business Development","Mechanical Design"]
-  },
-  cameramount: {
-    title: "Under-hoop basketball camera mount",
-    tags: [['Design','design'],['Hardware','hardware']],
-    media: null,
-    // Example: media: { type: 'gallery', images: ['assets/images/cam-mount-build.jpg','assets/images/cam-hoop-shot.jpg'] }
-    desc: "Designed and fabricated a mount to capture photos from directly under the basketball hoop — a novel angle for shot analysis or content creation.",
-    outcomes: ["Functional camera mount for under-hoop photography","Novel perspective for basketball shot analysis"],
-    skills: ["Mechanical Design","Fabrication","Camera Systems","SolidWorks"]
+  mediclife: {
+    title: 'Passive medical monitoring product development',
+    tags: [['Design','design'],['Hardware','hardware'],['Software','software']],
+    media: { type: 'gallery', items: [
+      { type: 'image', src: 'assets/Mill.png' },
+    ] },
+    desc: 'Worked on invention and prototyping for a passive monitoring product with a five-person R and D team.',
+    outcomes: [
+      'Developed a passive medical monitoring concept with interdisciplinary team',
+      'Built 17 prototypes for replaceable testing cartridge with physical and electrical interfaces'
+    ],
+    skills: ['Rapid Prototyping','Design Iteration','R and D Collaboration','Hardware Integration'],
+  }, 
+  qa: {
+    title: 'Medical device QA verification at ATL Technology',
+    tags: [['Industry','impact'],['Validation','research']],
+    desc: 'Performed reliability and safety validation work for medical device systems and completed design verification protocols.',
+    outcomes: [
+      'Executed engineering tests for critical medical components',
+      'Completed design verification protocols across 32 system components'
+    ],
+    skills: ['Verification Testing','Reliability','Safety','Documentation'],
   },
   designportfolio: {
-    title: "Design portfolio (coursework)",
+    title: 'Design portfolio',
     tags: [['Design','design']],
     media: { type: 'gallery', items: [
-      { type: 'image', src: 'assets/Curtain_sketches.png' },
-      { type: 'image', src: 'assets/Curtain_cad_fea.png' },
-      { type: 'image', src: 'assets/CAD_Practice.png' }
+    { type: 'image', src: 'assets/Onewheel.png' },
+    { type: 'image', src: 'assets/OneWheel_explode.png' },
+    { type: 'image', src: 'assets/OneWheel_annotated_explode.png' },
+    { type: 'image', src: 'assets/LadderLock_deploy.png' },
+
     ] },
-    desc: "Comprehensive design portfolio documenting the full design process across multiple class projects — ideation, prototyping, iteration, and final execution.",
-    outcomes: ["Complete design process documentation","Multiple projects from ideation through final design","Strong design methodology foundation"],
-    skills: ["Design Thinking","Technical Drawing","Prototyping","Design Communication","Iteration"]
+    desc: 'A collection of design-focused projects and work samples.',
+    outcomes: [
+      'Showcases a range of design projects across mechanical, product, and humanitarian design',
+      'Highlights design process, iteration, and outcomes with a focus on visual communication'
+    ],
+    skills: ['Mechanical Design','Product Design','Humanitarian Design','Visual Communication'],
   },
-  advisor: {
-    title: "Graduate research advisor — MS projects",
-    tags: [['Research','research']],
-    media: null,
-    desc: "Served in an advisory capacity across several MS projects, providing technical guidance and mentorship beyond core dissertation work.",
-    outcomes: ["Mentored junior researchers","Technical guidance across multiple projects"],
-    skills: ["Research Mentorship","Technical Review","Robotics","Systems Design"]
+  sketchportfolio: {
+    title: 'Sketch portfolio',
+    tags: [['Design','design']],
+    media: { type: 'gallery', items: [
+      { type: 'image', src: 'assets/sketch1.png' },
+      { type: 'image', src: 'assets/sketch2.png' },
+      { type: 'image', src: 'assets/sketch3.png' },
+    ] },
+    desc: 'A collection of sketches and concept work.',
+    outcomes: [
+      'Demonstrates ideation and concept development through sketches',
+      'Includes a variety of subjects, from product concepts to mechanical details'
+    ],
+    skills: ['Sketching','Concept Development','Visual Communication'],
   }
 };
 
 const archiveData = [
   { id:'quinoa', num:'01', title:'Quinoa mill — Bolivia', sub:'Humanitarian design · Field deployment', year:'Graduate', cats:['hardware','design'] },
-  { id:'scissor', num:'02', title:'Compliant scissor linkage', sub:'2 papers · Patent · Wearable & robotics', year:'MS Research', cats:['research','hardware'] },
-  { id:'isop', num:'03', title:'Isoperimetric robot workspace & robustness', sub:'2 papers · Hardware controller · 12ft robot', year:'MS Research', cats:['research','hardware'] },
-  { id:'mobileapp', num:'04', title:'Full-stack sales mobile app', sub:'React Native · Startup · CRM features', year:'Industry', cats:['software'] },
-  { id:'daikin', num:'05', title:'Logistics optimization at Daikin', sub:'FTL/LTL shipping · Cost reduction', year:'Industry', cats:['design'] },
-  { id:'pingpong', num:'06', title:'Ping pong ball launcher robot', sub:'Goal-targeting · Actuation & control', year:'Undergrad', cats:['hardware'] },
-  { id:'callbell', num:'07', title:'Non-touch call bell', sub:'COVID-era · Contactless design · Business venture', year:'Venture', cats:['design','hardware'] },
-  { id:'designportfolio', num:'08', title:'Design portfolio', sub:'Full design process documentation', year:'Coursework', cats:['design'] },
-  { id:'cameramount', num:'09', title:'Under-hoop camera mount', sub:'Custom fabrication · Novel angle photography', year:'Project', cats:['hardware','design'] },
-  { id:'advisor', num:'10', title:'Graduate research advisor', sub:'Mentorship across MS projects', year:'MS Research', cats:['research'] },
+  { id:'rover', num:'02', title:'Saffron field rover ', sub:'40% harvest gain, 1.9M images, 10k landmarks', year:'Research', cats:['research','software'] },
+  { id:'navigation', num:'02', title:'Novel navigation for semi-autonomous agriculture', sub:'Controls, and autonomy for dynamic environments', year:'Research', cats:['research','software','hardware'] },
+  { id:'sandia', num:'03', title:'Sandia high-g test automation', sub:'90% faster review with data pipeline automation', year:'Industry', cats:['industry','software'] },
+  { id:'mediclife', num:'05', title:'Medical device prototyping', sub:'17 prototypes for replaceable testingcartridges', year:'Design', cats:['design'] },
+  { id:'designportfolio', num:'06', title:'Design portfolio', sub:'A collection of design-focused projects and work samples', year:'Design', cats:['design'] },
+  { id:'sketchportfolio', num:'07', title:'Sketch portfolio', sub:'A collection of sketches and concept work', year:'Personal', cats:['design'] }
 ];
 
 /*
@@ -564,7 +565,6 @@ function getProjectLinks(id) {
 function renderProfileLinks() {
   const profileLinks = [
     { label: 'LinkedIn', href: resolveLink('linkedin') },
-    { label: 'Google Scholar', href: resolveLink('google scholar') },
     { label: 'Resume', href: resolveLink('resume') }
   ];
 
