@@ -143,6 +143,8 @@
   .modal-media { width: 100%; aspect-ratio: 16/9; background: var(--paper-warm); overflow: hidden; position: relative; }
   .modal-media img, .modal-media video { width: 100%; height: 100%; object-fit: contain; background: var(--paper-warm); }
   .modal-media iframe { width: 100%; height: 100%; border: none; }
+  .modal-media-strip { padding: 0.9rem 1.75rem 0.75rem; border-bottom: 1px solid var(--border-light); }
+  .modal-media-strip .modal-sec-label { margin-bottom: 6px; }
   .modal-media-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
   .modal-media-ph span { font-size: 36px; opacity: 0.35; }
   .modal-media-ph p { font-size: 11px; color: var(--ink-faint); font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
@@ -191,10 +193,10 @@
   <div class="nav-inner">
     <a class="nav-logo" href="#">Jeffrey Taylor</a>
     <div class="nav-links">
-      <a href="#featured">Work</a>
+      <a href="#featured">Featured</a>
       <a href="#about">About</a>
-      <a href="#archive">Archive</a>
-      <a href="#side">Side Projects</a>
+      <a href="#archive">Projects</a>
+      <!-- <a href="#side">Side Projects</a> -->
     </div>
   </div>
 </nav>
@@ -310,8 +312,23 @@
   <div class="skills-strip-inner">
     <h2>Technical skills</h2>
     <div class="skills-grid">
-      <span class="skill-pill s">Mechanical Design</span><span class="skill-pill s">Robotics &amp; Controls</span><span class="skill-pill s">React Native</span><span class="skill-pill s">Python</span><span class="skill-pill s">C++ / Arduino</span><span class="skill-pill s">ROS</span><span class="skill-pill s">Published Research</span>
-      <span class="skill-pill">SolidWorks / CAD</span><span class="skill-pill">FEA / Simulation</span><span class="skill-pill">Full-Stack Mobile</span><span class="skill-pill">Logistics Optimization</span><span class="skill-pill">Manufacturing Design</span><span class="skill-pill">Compliant Mechanisms</span><span class="skill-pill">Graph Theory</span><span class="skill-pill">Embedded Systems</span><span class="skill-pill">Kinematics</span><span class="skill-pill">Spanish (Fluent)</span><span class="skill-pill">Supply Chain</span><span class="skill-pill">Technical Writing</span><span class="skill-pill">Prototyping</span>
+      <span class="skill-pill s">Mechanical Design</span>
+      <span class="skill-pill s">Robotic Localization &amp; Mapping</span>
+      <span class="skill-pill s">Controls</span>
+      <span class="skill-pill s">Python</span>
+      <span class="skill-pill s">Deep Learning / Machine Learning</span>
+      <span class="skill-pill s">Prototyping</span>
+      <span class="skill-pill">Pytorch</span>
+      <span class="skill-pill">Field Research &amp; Deployment</span>
+      <span class="skill-pill">SolidWorks / CAD</span>
+      <span class="skill-pill">FEA / Simulation</span>
+      <span class="skill-pill">Product Development</span>
+      <span class="skill-pill">Design for Manufacturing</span>
+      <span class="skill-pill">Compliant Mechanisms</span>
+      <span class="skill-pill">Kinematics</span>
+      <span class="skill-pill">Supply Chain</span>
+      <span class="skill-pill">Technical Writing</span>
+      <span class="skill-pill">Published Research</span>
     </div>
   </div>
 </div>
@@ -356,6 +373,7 @@
     <div class="modal-media" id="modal-media">
       <div class="modal-media-ph"><span>📷</span><p>Photos coming soon</p></div>
     </div>
+    <div class="modal-media-strip" id="strip-sec" style="display:none;"><div class="modal-sec-label">Photos</div><div class="photo-strip" id="modal-strip"></div></div>
     <div class="modal-header">
       <div>
         <div class="card-tags" id="modal-tags"></div>
@@ -365,7 +383,6 @@
     </div>
     <div class="modal-body">
       <div class="modal-sec"><div class="modal-sec-label">Overview</div><p id="modal-desc"></p></div>
-      <div class="modal-sec" id="strip-sec" style="display:none;"><div class="modal-sec-label">Photos</div><div class="photo-strip" id="modal-strip"></div></div>
       <div class="modal-sec" id="links-sec" style="display:none;"><div class="modal-sec-label">Links</div><div class="modal-links" id="modal-links"></div></div>
       <div class="modal-sec"><div class="modal-sec-label">Key outcomes</div><ul class="outcomes-list" id="modal-outcomes"></ul></div>
       <div class="modal-sec"><div class="modal-sec-label">Skills &amp; tools</div><div id="modal-skills"></div></div>
@@ -426,21 +443,47 @@ const projects = {
     skills: ["SolidWorks","CAD","DFM","Field Research","Stakeholder Communication","Granite Machining","Supply Chain Design"]
   },
   rover: {
-    title: 'Closed-loop rover navigation and autonomy stack',
+    title: 'Data Acquisition and Field Mapping for Agricultural Robotics',
     tags: [['Research','research'],['Autonomy','software'],['Field Robotics','hardware']],
         media: { type: 'gallery', items: [
       { type: 'image', src: 'assets/AmigaRover.png' },
       { type: 'image', src: 'assets/cameraProjection.png' },
 
     ] },
-    desc: 'Graduate research work at BYU across three projects. Built onboard navigation, data acquisition, and deployment-ready autonomy workflows for field operations.',
+    desc: 'Designed and deployed a data acquisition and field mapping system for agricultural robotics. Developed onboard Python data systems to collect 1.9M images for autonomy and perception pipelines. Applied localization and mapping techniques to associate 10k landmarks in a dynamic agricultural environment, enabling repeatable field mapping and operation.',
     outcomes: [
-      'Improved harvesting rates by 40% in human trials using a hand-tracking control algorithm',
       'Collected 1.9M images through onboard Python data systems for autonomy and perception pipelines',
       'Mapped 10k landmarks in dynamic agricultural environments for repeatable operation',
-      'Contributed to 2 patent filings through research outputs and system innovation'
     ],
     skills: ['Python','PyTorch','SLAM','Localization','Graph Neural Networks','Robot Controls','Data Acquisition'],
+  },
+  predict: {
+    title: 'Autonomous Harvesting Prediction with Machine Learning',
+    tags: [['Research','research'],['Autonomy','software'],['Field Robotics','hardware']],
+        media: { type: 'gallery', items: [
+      { type: 'image', src: 'assets/AmigaRover.png' },
+      { type: 'image', src: 'assets/cameraProjection.png' },
+
+    ] },
+    desc: 'Enabling autonomous harvesting through machine learning.',
+    outcomes: [
+      'Trained neural networks for real-time detection of saffron buds and flowers with combined mAP of 0.97',
+      'Developed a real-time prediction model for autonomous harvesting at peak quality',
+      'Filed provisional patent for classification and predictive models'],
+
+    skills: ['Python','PyTorch','SLAM','Localization','Graph Neural Networks','Robot Controls','Data Acquisition'],
+  },
+  navigation: {
+    title: 'Computer vision navigation for semi-autonomous agriculture',
+    tags: [['Research','impact'],['Validation','research']],
+    desc: 'Graduate research project focused on computer vision-based navigation for semi-autonomous agricultural vehicles. Developed and validated algorithms for real-time environment perception and path planning in dynamic field conditions.',
+    outcomes: [
+      'Designed and implemented a computer vision navigation system for agricultural vehicles',
+      'Improved harvesting rates by 40% in IRB approved human trials using hand-tracking control algorithm',
+      'Validated algorithms in real-time field conditions, demonstrating improved navigation accuracy',
+      'Filed 1 provisional patent for the novel control algorithm',   
+    ],
+    skills: ['Computer Vision','Real-time Systems','Field Testing','Algorithm Validation'],
   },
   sandia: {
     title: 'High-g device test automation at Sandia',
@@ -459,23 +502,14 @@ const projects = {
     media: { type: 'gallery', items: [
       { type: 'image', src: 'assets/cartridge.png' },
     ] },
-    desc: 'Worked on invention and prototyping for a passive monitoring product with a five-person R and D team.',
+    desc: 'Responsible for invention and prototyping of a passive monitoring product with a five-person R&D team.',
     outcomes: [
       'Developed a passive medical monitoring concept with interdisciplinary team',
       'Built 17 prototypes for replaceable testing cartridge with physical and electrical interfaces'
     ],
     skills: ['Rapid Prototyping','Design Iteration','R and D Collaboration','Hardware Integration'],
   }, 
-  navigation: {
-    title: 'Computer vision navigation for semi-autonomous agriculture',
-    tags: [['Research','impact'],['Validation','research']],
-    desc: 'Graduate research project focused on computer vision-based navigation for semi-autonomous agricultural vehicles. Developed and validated algorithms for real-time environment perception and path planning in dynamic field conditions.',
-    outcomes: [
-      'Designed and implemented a computer vision navigation system for agricultural vehicles',
-      'Validated algorithms in real-time field conditions, demonstrating improved navigation accuracy',
-    ],
-    skills: ['Computer Vision','Real-time Systems','Field Testing','Algorithm Validation'],
-  },
+  
   designportfolio: {
     title: 'Design portfolio',
     tags: [['Design','design']],
@@ -515,7 +549,8 @@ const projects = {
 const archiveData = [
   { id:'rover', num:'01', title:'Saffron field rover ', sub:'1.9M images, 10k landmarks, 1 patent', year:'Research', cats:['research','software'] },
   { id:'quinoa', num:'02', title:'Quinoa mill — Bolivia', sub:'Humanitarian design · Field deployment', year:'Graduate', cats:['hardware','design'] },
-  { id:'navigation', num:'03', title:'Novel navigation for semi-autonomous agriculture', sub:'Controls, and autonomy for dynamic environments', year:'Research', cats:['research','software','hardware'] },
+  { id:'predict', num:'03', title:'Autonomous harvesting prediction', sub:'Real-time machine learning for harvest quality prediction', year:'Research', cats:['research','software'] },
+  { id:'navigation', num:'03', title:'Novel navigation algorithm for semi-autonomous agriculture', sub:'Controls, and autonomy for dynamic environments', year:'Research', cats:['research','software','hardware'] },
   { id:'sandia', num:'04', title:'Sandia high-g process automation', sub:'90% faster review with data pipeline automation', year:'Industry', cats:['industry','software'] },
   { id:'mediclife', num:'05', title:'Medical device prototyping', sub:'17 prototypes for replaceable testingcartridges', year:'Design', cats:['design'] },
   { id:'designportfolio', num:'06', title:'Design portfolio', sub:'A collection of design-focused projects and work samples', year:'Design', cats:['design'] },
@@ -533,10 +568,7 @@ const sideProjects = [
   { icon: '🛠️', title: 'Workshop build', desc: 'Anything made in the garage, on the bench, or for a friend. Add a photo path in the media field.', id: null },
 ];
 
-let externalLinks = {
-  resume: 'assets/JeffreyTaylor_Resume.pdf',
-  linkedin: 'https://www.linkedin.com/in/jeffreyryantaylor/'
-};
+let externalLinks = {};
 
 const projectLinkMap = {
   mobileapp: [
@@ -583,9 +615,11 @@ function renderProfileLinks() {
 async function loadLinks() {
   try {
     const res = await fetch('links.json');
-    if (res.ok) externalLinks = { ...externalLinks, ...(await res.json()) };
+    if (!res.ok) throw new Error(`Failed to load links.json: ${res.status}`);
+    externalLinks = await res.json();
+    console.log('Links loaded from links.json:', externalLinks);
   } catch (err) {
-    console.warn('Could not load links.json, using built-in defaults.', err);
+    console.error('Error loading links.json:', err);
   }
   renderProfileLinks();
 }
